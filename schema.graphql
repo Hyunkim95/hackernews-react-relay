@@ -716,11 +716,10 @@ type UpdateVotePayload {
 
 type User implements Node {
   createdAt: DateTime!
-  id: ID!
-  links(filter: LinkFilter, orderBy: LinkOrderBy, skip: Int, after: String, before: String, first: Int, last: Int): LinkConnection
-  name: String!
+  email: String @isUnique
+  id: ID! @isUnique
+  password: String
   updatedAt: DateTime!
-  votes(filter: VoteFilter, orderBy: VoteOrderBy, skip: Int, after: String, before: String, first: Int, last: Int): VoteConnection
 }
 
 # A connection to a list of items.
