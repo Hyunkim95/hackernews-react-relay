@@ -25,7 +25,7 @@ const mutation = graphql`
 `
 
 // 3
-export default (description, url, callback) => {
+export default (postedById, description, url, callback) => {
   // 4
   const variables = {
     input: {

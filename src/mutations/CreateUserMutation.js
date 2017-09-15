@@ -1,3 +1,26 @@
+import {
+  commitMutation,
+  graphql
+} from 'react-relay'
+import environment from '../Environment'
+
+const mutation = graphql`
+  mutation CreateUserMutation($createUserInput: SignupUserInput!, $signinUserInput: SigninUserInput!) {
+    createUser(input: $createUserInput) {
+      user {
+        id
+      }
+    }
+
+    signinUser(input: $signinUserInput) {
+      token
+      user {
+        id
+      }
+    }
+  }
+`
+
 export default (name, email, password, callback) => {
   const variables = {
     // 1 
